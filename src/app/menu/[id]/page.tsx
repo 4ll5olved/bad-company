@@ -1,23 +1,32 @@
 import Image from "next/image";
 import React from "react";
 
-
-async function getData(id:string){
+async function getData(id: string) {
     const res = await fetch(`http://localhost:3000/api/menu/${id}`);
+    
+    // Check if the response is ok (status in the range 200-299)
+    if (!res.ok) {
+        throw new Error('Failed to fetch data');
+    }
+
     return res.json();
 }
-export default async function SingleMenu({params}:{params:{id:string}}){
-    const {id} = await params
 
+export default async function SingleMenu({ params }: { params: Promise<{ id: string }> }) {
+    // Await the params to access its properties
+    const { id } = await params;
+
+    // Fetch the food data
     const food = await getData(id);
-    return(
+
+    return (
         <section className="inner-page mt-5">
             <div className="container mt-5">
                 <div className="row">
                     <div className="col-lg-6">
                         <Image
                             src={food.preview}
-                            alt=""
+                            alt={food.name} // Provide a meaningful alt text
                             width={500}
                             height={500}
                             className="img-fluid"
@@ -33,5 +42,5 @@ export default async function SingleMenu({params}:{params:{id:string}}){
                 </div>
             </div>
         </section>
-    )
+    );
 }
