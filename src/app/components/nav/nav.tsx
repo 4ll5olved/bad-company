@@ -1,5 +1,5 @@
 "use client"
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import './nav.css';
 import { navs } from "@/app/data/data";
@@ -41,7 +41,7 @@ export default function Nav() {
         }
     }
 
-    const handleNavActive = useCallback(()=>{
+    const handleNavActive = ()=>{
         const position = scroll + 200;
         setNavlist(
             navlist.map(nav=>{
@@ -59,13 +59,12 @@ export default function Nav() {
                 }
                 return nav;
             })
-       );
-
-    }, [scroll, navlist]);
+       )
+    }
 
     useEffect(() => {
         handleNavActive();
-    }, [handleNavActive]);
+    }, [scroll]);
         
 
 
