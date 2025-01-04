@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './booking.css';
 import SectionTitle from "@/app/components/sectTitle/sectionTitle";
 
@@ -17,12 +17,12 @@ export default function Booking() {
 
     const [text, setText] = useState(initialState);
 
-    const handleTextChange = (e:Event | any) =>{
+    const handleTextChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)  =>{
         const {name, value} = e.target;
         setText({...text, [name]: value, validate: ''});
     }
 
-    const handleSubmitBooking = async (e:Event|any) =>{
+    const handleSubmitBooking = async (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
         if(
             text.name === '' ||

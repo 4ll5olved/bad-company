@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./header.css";
 import AppButt from "../appButt/appButt";
 import Nav from "../nav/nav";
+import Link from "next/link";
 
 export default function Header() {
     const [scroll, setScroll] = useState(0);
@@ -27,7 +28,7 @@ export default function Header() {
         >
           <div className="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
             <h1 className="logo me-auto me-lg-0">
-                <a href="/">Resto</a>
+                <Link href="/">Resto</Link>
             </h1>
             <Nav />
             <AppButt name="Book a Table" />
