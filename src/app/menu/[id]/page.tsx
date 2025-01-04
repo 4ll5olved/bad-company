@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 async function getData(id: string) {
-    const res = await fetch(`http://localhost:3000/api/menu/${id}`);
+    const res = await fetch(`/api/menu/${id}`);
     
     // Check if the response is ok (status in the range 200-299)
     if (!res.ok) {
