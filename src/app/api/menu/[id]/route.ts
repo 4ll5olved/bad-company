@@ -3,10 +3,10 @@ import { NextResponse } from 'next/server';
 
 export async function GET(
     request: Request,
-    { params }: { params: Promise<{ id: string }> } // Change the type to a Promise
+    { params }: { params: { id: string } } // params is a regular object
 ) {
-    // Await the params to access its properties
-    const { id } = await params;
+    // Access the id directly from params
+    const { id } = params;
 
     // Find the food item by id
     const food = menu.find((item) => item.id.toString() === id);
