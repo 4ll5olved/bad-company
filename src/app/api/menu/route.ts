@@ -5,7 +5,7 @@ export async function GET(
     request: Request,
     {params}: {params: {id: string}}
 ) {
-    const {id} = await params;
+    const {id} = params;
     const item = menu.find((menuItem) => menuItem.id === parseInt(id));
     if (!item) {
         return NextResponse.json({ error: "Item not found" }, { status: 404 });
