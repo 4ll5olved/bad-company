@@ -1,15 +1,31 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './hero.css';
 import GLightbox from "glightbox";
 import HeroBtn from "@/app/components/herobtn/herobtn";
 
+
 export default function Hero() {
+    const [isClient, setIsClient] = useState(false);
+
     useEffect(() => {
-        new (GLightbox as any)({
-            selector: '.glightbox',
-        });
-    },[])
+        setIsClient(true);
+    }, []);
+
+
+    useEffect(() => {
+        if (isClient) {
+            // Initialize GLightbox when the component mounts (client-side only)
+            const lightbox = GLightbox({
+                selector: '.glightbox',
+            });
+            
+            // Cleanup function to destroy lightbox when the component unmounts
+            return () => {
+                lightbox.destroy();
+            };
+        }
+    }, [isClient]);
 
     return (
         <section

@@ -1,0 +1,66 @@
+.menu .menu-item {
+    margin-top: 50px;
+}
+
+.menu .menu-img {
+    width: 70px;
+    border-radius: 50%;
+    float: left;
+    border: 5px solid rgba(255,255,255 , 0.2);
+
+}
+
+.menu .menu-content {
+    margin-left: 85px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu .menu-content::after {
+    content: '.........................................'
+    '.........................................'
+    '.........................................';
+    position: absolute;
+    left: 20px;
+    right: 0;
+    top: -4px;
+    z-index: 1;
+    color: wheat;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu .menu-content a{
+    padding-right: 10px;
+    background: black;
+    position: relative;
+    z-index: 3
+    ;
+    font-weight: 700;
+    color: white;
+    transition: 0.3s;
+}
+
+
+.menu .menu-content a:hover{
+    color: #cda45e;
+}
+
+.menu .menu-content span{
+    background: black;
+    position: relative;
+    z-index: 3
+    ;
+    padding: 0 10px;
+    font-weight: 600;
+    color: #cda45e;
+}
+
+.menu .menu-ingridients {
+    margin-left: 85px;
+    font-style: italic;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, sans-serif;
+    color: rgba(128, 128, 128, 0.484);
+}

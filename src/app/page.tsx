@@ -1,6 +1,8 @@
 
 import About from "./sections/about/about";
+import Booking from "./sections/book/booking";
 import Hero from "./sections/hero/hero";
+import Menu from "./sections/menu/menu";
 import WhyUs from "./sections/profile/whyUs";
 
 export default function Home() {
@@ -9,6 +11,8 @@ export default function Home() {
     <Hero />
     <About />
     <WhyUs />
+    <Menu />
+    <Booking />
     </>
   );
 }
