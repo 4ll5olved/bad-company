@@ -1,6 +1,5 @@
 import React from "react";
 import './menuItem.css';
-import Image from "next/image";
 import Link from "next/link";
 
 export default function MenuItem({item}:{item:{id:number;name:string;preview:string; price:number;ingridients:string;}}) {

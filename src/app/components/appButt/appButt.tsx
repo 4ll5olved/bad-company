@@ -3,8 +3,10 @@ import './appButt.css';
 
 export default function AppButt({name}:{name:string}) {
     const handleScrollto = (section:string) => {
-        //to the table!
-        
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     return (

@@ -3,8 +3,11 @@ import './herobtn.css';
 
 export default function HeroBtn({name, target}:{name:string, target:string}){
     const handleScrollTo=(section:string)=>{
-
-    }
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
 
     return(
         <a onClick={()=> handleScrollTo(target)}
