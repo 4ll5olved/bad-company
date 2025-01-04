@@ -12,9 +12,9 @@ async function getData(id: string) {
     return res.json();
 }
 
-export default async function SingleMenu({ params }: { params: { id: string } }) {
-    // Access the id directly from params without awaiting
-    const { id } = params;
+export default async function SingleMenu({ params }: { params: Promise<{ id: string }> }) {
+    // Await the params to access its properties
+    const { id } = await params;
 
     // Fetch the food data
     const food = await getData(id);
