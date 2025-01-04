@@ -3,10 +3,13 @@ import { NextResponse } from 'next/server';
 
 export async function GET(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> } // Change the type to a Promise
 ) {
+    // Await the params to access its properties
+    const { id } = await params;
+
     // Find the food item by id
-    const food = menu.find((item) => item.id.toString() === params.id);
+    const food = menu.find((item) => item.id.toString() === id);
 
     // If the food item is not found, return a 404 response
     if (!food) {
