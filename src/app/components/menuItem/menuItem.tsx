@@ -7,7 +7,7 @@ export default function MenuItem({item}:{item:{id:number;name:string;preview:str
 
     return(
         <div className="col-lg-6 menu-item">
-            <Image src={item.preview} alt="" className="menu-img image-fluid" width={500} height={500}/>
+            <Image src={item.preview} alt="" className="menu-img image-fluid" width={60} height={80}/>
             <div className="menu-content">
                 <Link href={`/menu/${item.id}`}>{item.name}</Link>
                 <span>${item.price}</span>
