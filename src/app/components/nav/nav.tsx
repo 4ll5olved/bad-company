@@ -1,9 +1,12 @@
 "use client"
 import React, { useEffect, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import './nav.css';
 import { navs } from "@/app/data/data";
 
 export default function Nav() {
+    const pathname = usePathname();
+    const Router = useRouter();
     const [navlist, setNavlist] = useState(navs);
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState(0);
@@ -24,12 +27,46 @@ export default function Nav() {
     }
 
     const handleScrollTo = (section : string) => {
-
+        let header:HTMLElement = document.querySelector('#header')!;
+        let offset = header.offsetHeight;
+        let targetEl:HTMLElement= document.querySelector('#'+section)!;
+        if(pathname === '/'){
+            let elementPosition = targetEl.offsetTop;
+            window.scrollTo({
+                top: elementPosition - offset,
+                behavior: 'smooth'
+            });
+        } else {
+            Router.push(`/#${section}`);
+        }
     }
 
     const handleNavActive = ()=>{
+        let position = scroll + 200;
+        setNavlist(
+            navlist.map(nav=>{
+                nav.active = false;
+                let targetsection:HTMLElement = document.querySelector(
+                    '#'+ nav.target
+                )!;
 
+                if(
+                    targetsection &&
+                    position>=targetsection.offsetTop &&
+                    position<=targetsection.offsetTop + targetsection.offsetHeight    
+                ) {
+                   nav.active = true 
+                }
+                return nav;
+            })
+       )
     }
+
+    useEffect(() => {
+        handleNavActive();
+    }, [scroll]);
+        
+
 
     return (
         <nav id="navbar"
