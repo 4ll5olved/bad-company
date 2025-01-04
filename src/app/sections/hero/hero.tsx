@@ -6,7 +6,7 @@ import HeroBtn from "@/app/components/herobtn/herobtn";
 
 export default function Hero() {
     useEffect(() => {
-        GLightbox({
+        new (GLightbox as any)({
             selector: '.glightbox',
         });
     },[])

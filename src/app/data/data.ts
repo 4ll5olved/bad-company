@@ -47,4 +47,22 @@ export const navs =  [
         target: "chefs",
         active:"false",
     },    
+];
+
+export const profile = [
+    {
+        id: 1,
+        name: "Chef's Profile",
+        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+    },
+    {
+        id: 2,
+        name: "Locale speciality",
+        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+    },
+    {
+        id: 3,
+        name: "Unique experience",
+        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+    },
 ]
